@@ -1,0 +1,1 @@
+The simplest orchestrator for containerized apps is Docker Compose.

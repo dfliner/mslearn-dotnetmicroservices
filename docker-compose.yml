@@ -1,0 +1,22 @@
+version: '3.4'
+
+services:
+  backend:
+    image: pizzabackend:v0.1-dev
+    build:
+      context: backend
+      dockerfile: Dockerfile
+    ports:
+      - "5000:80"
+
+  frontend:
+    image: pizzafrontend:v0.1-dev
+    build:
+      context: frontend
+      dockerfile: Dockerfile
+    environment:
+      - backendUrl=http://backend
+    ports:
+      - "5902:80"
+    depends_on:
+      - backend
